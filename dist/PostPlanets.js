@@ -24,50 +24,37 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 exports.__esModule = true;
-exports.User = void 0;
+exports.PostPlanets = void 0;
 var typeorm_1 = require("typeorm");
-var FavPerson_1 = require("./FavPerson");
 var FavsPlanets_1 = require("./FavsPlanets");
-var User = /** @class */ (function (_super) {
-    __extends(User, _super);
-    function User() {
+var PostPlanets = /** @class */ (function (_super) {
+    __extends(PostPlanets, _super);
+    function PostPlanets() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     __decorate([
         typeorm_1.PrimaryGeneratedColumn(),
         __metadata("design:type", Number)
-    ], User.prototype, "id");
-    __decorate([
-        typeorm_1.Column({ unique: true }),
-        __metadata("design:type", String)
-    ], User.prototype, "username");
+    ], PostPlanets.prototype, "id");
     __decorate([
         typeorm_1.Column(),
         __metadata("design:type", String)
-    ], User.prototype, "first_name");
+    ], PostPlanets.prototype, "nombre");
     __decorate([
         typeorm_1.Column(),
         __metadata("design:type", String)
-    ], User.prototype, "last_name");
+    ], PostPlanets.prototype, "foto");
     __decorate([
-        typeorm_1.Column({ unique: true }),
+        typeorm_1.Column(),
         __metadata("design:type", String)
-    ], User.prototype, "email");
+    ], PostPlanets.prototype, "info");
     __decorate([
-        typeorm_1.Column({ unique: true }),
-        __metadata("design:type", String)
-    ], User.prototype, "password");
-    __decorate([
-        typeorm_1.OneToMany(function () { return FavPerson_1.FavsPersons; }, function (favspersons) { return favspersons.user; }),
-        __metadata("design:type", Array)
-    ], User.prototype, "favspersons");
-    __decorate([
-        typeorm_1.OneToMany(function () { return FavsPlanets_1.FavsPlanets; }, function (favsplanets) { return favsplanets.user; }),
-        __metadata("design:type", Array)
-    ], User.prototype, "favsplanets");
-    User = __decorate([
+        typeorm_1.OneToMany(function () { return FavsPlanets_1.FavsPlanets; }, function (favsplanets) { return favsplanets.postplanets; }),
+        __metadata("design:type", FavsPlanets_1.FavsPlanets)
+    ], PostPlanets.prototype, "favsplanets");
+    PostPlanets = __decorate([
         typeorm_1.Entity()
-    ], User);
-    return User;
+    ], PostPlanets);
+    return PostPlanets;
 }(typeorm_1.BaseEntity));
-exports.User = User;
+exports.PostPlanets = PostPlanets;

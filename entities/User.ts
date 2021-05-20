@@ -1,14 +1,22 @@
 import {
     Entity, Column, PrimaryGeneratedColumn, ManyToMany, 
-    BaseEntity, JoinTable
+    BaseEntity, JoinTable,OneToMany
   } from 'typeorm';
   
-  // import {Planet} from "./Planet"
+  import {PostPlanets} from "./PostPlanets"
+  import {PostPersons} from "./PostPersons"
+import { FavsPersons } from './FavPerson';
+import { FavsPlanets } from './FavsPlanets';
+
+
   @Entity()
   export class User extends BaseEntity{
     @PrimaryGeneratedColumn()
     id: number;
   
+    @Column({unique: true})
+    username: string;
+
     @Column()
     first_name: string;
   
@@ -20,9 +28,11 @@ import {
   
     @Column({unique: true})
     password: string;
-  
-    // @ManyToMany(() => Planet)
-    // @JoinTable()
-    // planets: Planet[];
-    
+   
+
+    @OneToMany(()=>FavsPersons, favspersons => favspersons.user)
+    favspersons: FavsPersons[];
+    @OneToMany(()=>FavsPlanets, favsplanets => favsplanets.user)
+    favsplanets: FavsPlanets[];
+     
   }
