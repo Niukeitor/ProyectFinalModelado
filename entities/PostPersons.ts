@@ -7,13 +7,28 @@ export class PostPersons extends BaseEntity {
     id: number
 
     @Column()
-    nombre: string
+    name: string
+
+    @Column()
+    descripcion:string
+
+    @Column()
+    birth_year:string
+    
+    @Column()
+    gender:string
+    
+    @Column()
+    height:number
+    
+    @Column()
+    skin_color:string
+    
+    @Column()
+    hair_color:string
 
     @Column()
     foto:string
-
-    @Column()
-    info:string
 
     @OneToMany(() => FavsPersons, favspersons => favspersons.postpersons)
    favspersons: FavsPersons;

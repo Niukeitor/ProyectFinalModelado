@@ -7,14 +7,30 @@ export class PostPlanets extends BaseEntity {
     id: number
 
     @Column()
-    nombre: string
+    name: string
+
+    @Column()
+    descripcion:string
+
+    @Column()
+    climate:string
+
+    /* Lo ponemos string porque no vamos a hacer cuentas o algo con la poblacion */
+    @Column()
+    population:string
+    
+    @Column()
+    orbital_period:string
+    
+    @Column()
+    rotation_period:string
+    
+    @Column()
+    diameter:string
 
     @Column()
     foto:string
 
-    @Column()
-    info:string
-     
    @OneToMany(() => FavsPlanets, favsplanets => favsplanets.postplanets)
    favsplanets: FavsPlanets;
 }

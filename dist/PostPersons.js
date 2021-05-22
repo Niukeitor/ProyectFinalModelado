@@ -39,15 +39,35 @@ var PostPersons = /** @class */ (function (_super) {
     __decorate([
         typeorm_1.Column(),
         __metadata("design:type", String)
-    ], PostPersons.prototype, "nombre");
+    ], PostPersons.prototype, "name");
+    __decorate([
+        typeorm_1.Column(),
+        __metadata("design:type", String)
+    ], PostPersons.prototype, "descripcion");
+    __decorate([
+        typeorm_1.Column(),
+        __metadata("design:type", String)
+    ], PostPersons.prototype, "birth_year");
+    __decorate([
+        typeorm_1.Column(),
+        __metadata("design:type", String)
+    ], PostPersons.prototype, "gender");
+    __decorate([
+        typeorm_1.Column(),
+        __metadata("design:type", Number)
+    ], PostPersons.prototype, "height");
+    __decorate([
+        typeorm_1.Column(),
+        __metadata("design:type", String)
+    ], PostPersons.prototype, "skin_color");
+    __decorate([
+        typeorm_1.Column(),
+        __metadata("design:type", String)
+    ], PostPersons.prototype, "hair_color");
     __decorate([
         typeorm_1.Column(),
         __metadata("design:type", String)
     ], PostPersons.prototype, "foto");
-    __decorate([
-        typeorm_1.Column(),
-        __metadata("design:type", String)
-    ], PostPersons.prototype, "info");
     __decorate([
         typeorm_1.OneToMany(function () { return FavPerson_1.FavsPersons; }, function (favspersons) { return favspersons.postpersons; }),
         __metadata("design:type", FavPerson_1.FavsPersons)

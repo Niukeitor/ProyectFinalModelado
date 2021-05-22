@@ -39,15 +39,35 @@ var PostPlanets = /** @class */ (function (_super) {
     __decorate([
         typeorm_1.Column(),
         __metadata("design:type", String)
-    ], PostPlanets.prototype, "nombre");
+    ], PostPlanets.prototype, "name");
+    __decorate([
+        typeorm_1.Column(),
+        __metadata("design:type", String)
+    ], PostPlanets.prototype, "descripcion");
+    __decorate([
+        typeorm_1.Column(),
+        __metadata("design:type", String)
+    ], PostPlanets.prototype, "climate");
+    __decorate([
+        typeorm_1.Column(),
+        __metadata("design:type", String)
+    ], PostPlanets.prototype, "population");
+    __decorate([
+        typeorm_1.Column(),
+        __metadata("design:type", String)
+    ], PostPlanets.prototype, "orbital_period");
+    __decorate([
+        typeorm_1.Column(),
+        __metadata("design:type", String)
+    ], PostPlanets.prototype, "rotation_period");
+    __decorate([
+        typeorm_1.Column(),
+        __metadata("design:type", String)
+    ], PostPlanets.prototype, "diameter");
     __decorate([
         typeorm_1.Column(),
         __metadata("design:type", String)
     ], PostPlanets.prototype, "foto");
-    __decorate([
-        typeorm_1.Column(),
-        __metadata("design:type", String)
-    ], PostPlanets.prototype, "info");
     __decorate([
         typeorm_1.OneToMany(function () { return FavsPlanets_1.FavsPlanets; }, function (favsplanets) { return favsplanets.postplanets; }),
         __metadata("design:type", FavsPlanets_1.FavsPlanets)
