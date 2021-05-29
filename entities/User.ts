@@ -3,10 +3,6 @@ import {
     BaseEntity, JoinTable,OneToMany
   } from 'typeorm';
   
-  import {PostPlanets} from "./PostPlanets"
-  import {PostPersons} from "./PostPersons"
-import { FavsPersons } from './FavPerson';
-import { FavsPlanets } from './FavsPlanets';
 
 
   @Entity()
@@ -29,10 +25,4 @@ import { FavsPlanets } from './FavsPlanets';
     @Column({unique: true})
     password: string;
    
-
-    @OneToMany(()=>FavsPersons, favspersons => favspersons.user)
-    favspersons: FavsPersons[];
-    @OneToMany(()=>FavsPlanets, favsplanets => favsplanets.user)
-    favsplanets: FavsPlanets[];
-     
   }

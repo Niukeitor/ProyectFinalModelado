@@ -26,8 +26,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 exports.__esModule = true;
 exports.User = void 0;
 var typeorm_1 = require("typeorm");
-var FavPerson_1 = require("./FavPerson");
-var FavsPlanets_1 = require("./FavsPlanets");
 var User = /** @class */ (function (_super) {
     __extends(User, _super);
     function User() {
@@ -57,14 +55,6 @@ var User = /** @class */ (function (_super) {
         typeorm_1.Column({ unique: true }),
         __metadata("design:type", String)
     ], User.prototype, "password");
-    __decorate([
-        typeorm_1.OneToMany(function () { return FavPerson_1.FavsPersons; }, function (favspersons) { return favspersons.user; }),
-        __metadata("design:type", Array)
-    ], User.prototype, "favspersons");
-    __decorate([
-        typeorm_1.OneToMany(function () { return FavsPlanets_1.FavsPlanets; }, function (favsplanets) { return favsplanets.user; }),
-        __metadata("design:type", Array)
-    ], User.prototype, "favsplanets");
     User = __decorate([
         typeorm_1.Entity()
     ], User);
