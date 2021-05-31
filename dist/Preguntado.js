@@ -24,40 +24,37 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 exports.__esModule = true;
-exports.User = void 0;
+exports.Preguntado = void 0;
 var typeorm_1 = require("typeorm");
-var User = /** @class */ (function (_super) {
-    __extends(User, _super);
-    function User() {
+var Comentario_1 = require("./Comentario");
+var Categoria_1 = require("./Categoria");
+var Preguntas_1 = require("./Preguntas");
+var Preguntado = /** @class */ (function (_super) {
+    __extends(Preguntado, _super);
+    function Preguntado() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     __decorate([
         typeorm_1.PrimaryGeneratedColumn(),
         __metadata("design:type", Number)
-    ], User.prototype, "id");
+    ], Preguntado.prototype, "id");
     __decorate([
-        typeorm_1.Column({ unique: true }),
-        __metadata("design:type", String)
-    ], User.prototype, "username");
+        typeorm_1.OneToMany(function () { return Comentario_1.Comentario; }, function (comentario) { return comentario.preguntado; }),
+        __metadata("design:type", Comentario_1.Comentario)
+    ], Preguntado.prototype, "comentario");
     __decorate([
-        typeorm_1.Column(),
-        __metadata("design:type", String)
-    ], User.prototype, "first_name");
+        typeorm_1.OneToMany(function () { return Categoria_1.Categoria; }, function (categoria) { return categoria.preguntado; }),
+        typeorm_1.JoinColumn(),
+        __metadata("design:type", Categoria_1.Categoria)
+    ], Preguntado.prototype, "categoria");
     __decorate([
-        typeorm_1.Column(),
-        __metadata("design:type", String)
-    ], User.prototype, "last_name");
-    __decorate([
-        typeorm_1.Column({ unique: true }),
-        __metadata("design:type", String)
-    ], User.prototype, "email");
-    __decorate([
-        typeorm_1.Column({ unique: true }),
-        __metadata("design:type", String)
-    ], User.prototype, "password");
-    User = __decorate([
+        typeorm_1.ManyToOne(function () { return Preguntas_1.Preguntas; }, function (preguntas) { return preguntas.preguntado; }),
+        typeorm_1.JoinColumn(),
+        __metadata("design:type", Preguntas_1.Preguntas)
+    ], Preguntado.prototype, "preguntas");
+    Preguntado = __decorate([
         typeorm_1.Entity()
-    ], User);
-    return User;
+    ], Preguntado);
+    return Preguntado;
 }(typeorm_1.BaseEntity));
-exports.User = User;
+exports.Preguntado = Preguntado;

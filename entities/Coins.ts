@@ -1,0 +1,21 @@
+import {
+    Entity, Column, PrimaryGeneratedColumn, ManyToMany,
+    BaseEntity, JoinTable, OneToOne, JoinColumn
+} from 'typeorm';
+import { Usuario } from "./Usuario"
+
+
+@Entity()
+export class Coins extends BaseEntity {
+    @PrimaryGeneratedColumn()
+    id: number;
+
+
+
+    @OneToOne(() => Usuario, usuario => usuario.coins)
+    @JoinColumn()
+    usuario: Usuario;
+
+}
+
+
